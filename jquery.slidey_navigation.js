@@ -2,8 +2,14 @@
   $.fn.slidey_navigation = function(options) {
     var elements = $(this);
     var settings = $.extend( {
-      'speed'  : 500,
-      'effect' : 'slide',
+      'show' : {
+        effect : 'fade',
+        duration: 500
+      },
+      'hide' : {
+        effect : 'slide',
+        duration: 500
+      },
       'container' : '#content',
       'selected' : 'selected'
     }, options);
@@ -16,25 +22,25 @@
         $(elements).filter('.' + settings.selected).removeClass(settings.selected);
 
         url = target.attr('href');
-        url += " " + settings.container
+        url += " " + settings.container;
 
-        $(settings.container).hide({
-          effect: settings.effect,
-          duration: settings.speed,
-          complete: function(){
-            $.ajax(url,{
-              success: function(data){
-                $(settings.container).html(data).show({
-                  effect: settings.effect,
-                  duration: settings.speed,
-                  complete: function(){
-                    target.addClass(settings.selected);
-                  }
-                });
-              }
-            });
-          }
-        });
+        $(settings.container).hide(
+          $.extend(settings.hide, {
+            complete: function(){
+              $.ajax(url,{
+                success: function(data){
+                  $(settings.container).html(data).show(
+                    $.extend(settings.show, {
+                      complete: function(){
+                        target.addClass(settings.selected);
+                      }
+                    })
+                  );
+                }
+              });
+            }
+          })
+        );
       });
     });
   };
