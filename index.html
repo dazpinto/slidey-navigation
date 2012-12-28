@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Slidey Carousel Demo Page</title>
+	<script src="vendor/jquery-1.7.2.min.js"></script>
+	<script src="vendor/jquery-ui.js"></script>
+	<script src="jquery.slidey_navigation.js"></script>
+	<script>
+		$(function() {
+			$('ul#navigation li a').slidey_navigation();
+		});
+	</script>
+	<style type="text/css">
+		*{
+			font-family: sans-serif;
+		}
+		body{
+			background-image: linear-gradient(bottom, rgb(157,158,163) 12%, rgb(235,235,235) 56%, rgb(232,232,232) 80%);
+			background-image: -o-linear-gradient(bottom, rgb(157,158,163) 12%, rgb(235,235,235) 56%, rgb(232,232,232) 80%);
+			background-image: -moz-linear-gradient(bottom, rgb(157,158,163) 12%, rgb(235,235,235) 56%, rgb(232,232,232) 80%);
+			background-image: -webkit-linear-gradient(bottom, rgb(157,158,163) 12%, rgb(235,235,235) 56%, rgb(232,232,232) 80%);
+			background-image: -ms-linear-gradient(bottom, rgb(157,158,163) 12%, rgb(235,235,235) 56%, rgb(232,232,232) 80%);
+			background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0.12, rgb(157,158,163)),color-stop(0.56, rgb(235,235,235)),color-stop(0.8, rgb(232,232,232)));
+		}
+		#container{
+			width: 700px;
+			background: white;
+			padding: 20px 10px;
+			margin: 0 auto;
+		}
+		div.code{
+			font-family: monospace;
+			background: #dbdbdb;
+			padding: 10px 5px;
+			margin: 10px 0;
+		}
+		div.code h3{
+			font-size: 100%;
+			font-weight: bold;
+			margin: 0 0 5px 0;
+			padding: 0;
+		}
+		#navigation{
+			float: left;
+			padding: 5px 26px;
+			background: #7cb7ff;
+		}
+		#navigation li{
+			float: left;
+			list-style: none;
+			margin: 0 4px;
+		}
+		#navigation li a{
+			text-align: center;
+			width: 100px;
+			padding: 5px 0;
+			display: block;
+			color: #777;
+			text-decoration: none;
+			background: #DDD;
+		}
+		#navigation li a.selected{
+			background: red;
+		}
+		#navigation li a:hover{
+			background: #BCBCBC;
+		}
+
+		#content{
+			clear: both;
+			min-height: 600px;
+			background-color: #ccc;
+		}
+
+	</style>
+</head>
+<body>
+	<div id="container">
+		<h1>Slidey Navigation Demo Page</h1>
+		<ul id="navigation">
+			<li><a href="/examples/bacon.htm">Bacon</a></li>
+			<li><a href="/examples/cupcake.htm">Cupcake</a></li>
+			<li><a href="/examples/liquor.htm">Liquor</a></li>
+			<li><a href="/examples/slipsum.htm">Slipsum</a></li>
+			<li><a href="/examples/space.htm">Space</a></li>
+			<li><a href="/examples/web2.htm">Web2</a></li>
+		</ul>
+
+		<div id="content">
+
+		</div>
+	</div>
+</body>
+</html>
